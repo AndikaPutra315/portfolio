@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aji Dwi Andika Putra - Personal Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            line-height: 1.6;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            background: #1e293b;
+            max-width: 600px;
+            width: 100%;
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border: 1px solid #334155;
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .avatar {
+            width: 85px;
+            height: 85px;
+            background: linear-gradient(135deg, #2563eb, #06b6d4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+
+        .subtitle {
+            color: #38bdf8;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .bio {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-top: 12px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 15px;
+            color: #f1f5f9;
+            margin: 25px 0 12px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #334155;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .badge {
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            border: 1px solid #334155;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: #2563eb;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #cbd5e1;
+            border: 1px solid #475569;
+        }
+
+        .btn-outline:hover {
+            background-color: #334155;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 12px;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="profile-header">
+            <div class="avatar">A</div>
+            <h1>Aji Dwi Andika Putra</h1>
+            <p class="subtitle">Software Developer & Student</p>
+            <p class="bio">Selamat datang! Website portofolio resmi ini sedang dalam tahap pengembangan.</p>
+        </div>
+
+        <div class="section-title">Tech Stack & Skills</div>
+        <div class="skills">
+            <span class="badge">PHP / Laravel</span>
+            <span class="badge">Golang</span>
+            <span class="badge">Flutter</span>
+            <span class="badge">Vue.js</span>
+            <span class="badge">MySQL</span>
+            <span class="badge">Git / GitHub</span>
+        </div>
+
+        <div class="section-title">Kontak & Tautan</div>
+        <div class="links">
+            <a href="https://github.com" target="_blank" class="btn btn-primary">Lihat Profil GitHub</a>
+            <a href="https://wa.me/628xxxxxxxxxx" target="_blank" class="btn btn-outline">Hubungi via WhatsApp</a>
+        </div>
+
+        <footer>
+            &copy; 2026 Aji Dwi Andika Putra. All rights reserved.
+        </footer>
+    </div>
+</body>
+</html>
