@@ -1,175 +1,786 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aji Dwi Andika Putra - Personal Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    <title>Aji Dwi Andika Putra - Software Developer & Hardware Specialist</title>
+    <meta name="description" content="Portofolio Aji Dwi Andika Putra (Andika) - Praktisi teknologi informasi, Software Developer & Hardware Specialist yang berpengalaman dalam web, mobile, hingga IoT & hardware diagnostics.">
+    
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome CDN untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkSlate: '#0f172a',
+                        cardSlate: '#1e293b',
+                        cyanAccent: '#06b6d4',
+                        skyAccent: '#0ea5e9'
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
         }
-
+    </script>
+    
+    <style>
+        /* Custom Styling & Glassmorphism */
         body {
             background-color: #0f172a;
-            color: #f8fafc;
-            line-height: 1.6;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .card {
-            background: #1e293b;
-            max-width: 600px;
-            width: 100%;
-            border-radius: 16px;
-            padding: 35px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            border: 1px solid #334155;
-        }
-
-        .profile-header {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .avatar {
-            width: 85px;
-            height: 85px;
-            background: linear-gradient(135deg, #2563eb, #06b6d4);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-            font-size: 32px;
-            font-weight: bold;
-            color: white;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
-        }
-
-        h1 {
-            font-size: 24px;
-            color: #ffffff;
-            margin-bottom: 6px;
-        }
-
-        .subtitle {
-            color: #38bdf8;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .bio {
-            color: #94a3b8;
-            font-size: 14px;
-            margin-top: 12px;
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 15px;
-            color: #f1f5f9;
-            margin: 25px 0 12px;
-            padding-bottom: 6px;
-            border-bottom: 1px solid #334155;
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .badge {
-            background: #0f172a;
             color: #e2e8f0;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            border: 1px solid #334155;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
         }
-
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 15px;
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
         }
-
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            transition: all 0.2s ease;
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
         }
-
-        .btn-primary {
-            background-color: #2563eb;
-            color: white;
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 5px;
         }
-
-        .btn-primary:hover {
-            background-color: #1d4ed8;
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4;
         }
-
-        .btn-outline {
-            background-color: transparent;
-            color: #cbd5e1;
-            border: 1px solid #475569;
+        
+        /* Glassmorphism Classes */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.45);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
-
-        .btn-outline:hover {
-            background-color: #334155;
-            color: white;
+        
+        .glass-card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        footer {
-            text-align: center;
-            margin-top: 25px;
-            font-size: 12px;
-            color: #64748b;
+        .glass-card-hover:hover {
+            background: rgba(30, 41, 59, 0.65);
+            border-color: rgba(6, 182, 212, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(6, 182, 212, 0.1), 0 8px 10px -6px rgba(6, 182, 212, 0.1);
+        }
+        
+        /* Background Grid Pattern */
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
         }
     </style>
 </head>
-<body>
-    <div class="card">
-        <div class="profile-header">
-            <div class="avatar">A</div>
-            <h1>Aji Dwi Andika Putra</h1>
-            <p class="subtitle">Software Developer & Student</p>
-            <p class="bio">Selamat datang! Website portofolio resmi ini sedang dalam tahap pengembangan.</p>
+<body class="bg-darkSlate text-slate-200 antialiased selection:bg-cyan-500 selection:text-slate-950 relative">
+
+    <!-- Decorative Background Glowing Blobs -->
+    <div class="fixed top-20 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none animate-pulse-slow"></div>
+    <div class="fixed bottom-20 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none animate-pulse-slow" style="animation-delay: 2s;"></div>
+    <div class="fixed inset-0 bg-grid-pattern pointer-events-none z-0"></div>
+
+    <!-- ================= 1. NAVIGATION BAR (STICKY HEADER) ================= -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md bg-darkSlate/80 border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 h-20 flex items-center justify-between">
+            <!-- Logo / Nama -->
+            <a href="#hero" class="flex items-center gap-3 group focus:outline-none">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-white shadow-lg shadow-cyan-500/25 group-hover:scale-105 transition-transform duration-300">
+                    <i class="fa-solid fa-code text-base"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-lg font-bold tracking-tight text-white group-hover:text-cyan-400 transition-colors">Aji Dwi Andika<span class="text-cyan-400">.</span></span>
+                    <span class="text-2xs text-slate-400 tracking-widest uppercase font-semibold">Dev & Hardware</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu Links -->
+            <nav class="hidden md:flex items-center gap-1 lg:gap-2">
+                <a href="#hero" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-800/50 transition-all duration-200">Beranda</a>
+                <a href="#skills" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-800/50 transition-all duration-200">Keahlian</a>
+                <a href="#projects" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-800/50 transition-all duration-200">Proyek</a>
+                <a href="#experience" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-800/50 transition-all duration-200">Pengalaman</a>
+                <a href="#contact" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-800/50 transition-all duration-200">Kontak</a>
+            </nav>
+
+            <!-- CTA Button Navbar -->
+            <div class="hidden md:flex items-center">
+                <a href="#contact" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold text-sm shadow-md shadow-cyan-500/20 hover:shadow-cyan-500/40 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2">
+                    <span>Hubungi Saya</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Hamburger Button for Mobile -->
+            <button id="mobile-menu-btn" aria-label="Toggle Menu" class="md:hidden text-slate-300 hover:text-cyan-400 focus:outline-none p-2.5 rounded-xl hover:bg-slate-800/80 border border-slate-700/50 transition-colors">
+                <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+            </button>
         </div>
 
-        <div class="section-title">Tech Stack & Skills</div>
-        <div class="skills">
-            <span class="badge">PHP / Laravel</span>
-            <span class="badge">Golang</span>
-            <span class="badge">Flutter</span>
-            <span class="badge">Vue.js</span>
-            <span class="badge">MySQL</span>
-            <span class="badge">Git / GitHub</span>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-darkSlate/95 border-b border-slate-800 px-6 py-6 space-y-3 shadow-2xl backdrop-blur-2xl">
+            <a href="#hero" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:text-cyan-400 hover:bg-slate-800/80 transition-all">Beranda</a>
+            <a href="#skills" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:text-cyan-400 hover:bg-slate-800/80 transition-all">Keahlian</a>
+            <a href="#projects" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:text-cyan-400 hover:bg-slate-800/80 transition-all">Proyek</a>
+            <a href="#experience" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:text-cyan-400 hover:bg-slate-800/80 transition-all">Pengalaman</a>
+            <a href="#contact" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:text-cyan-400 hover:bg-slate-800/80 transition-all">Kontak</a>
+            <div class="pt-3 border-t border-slate-800">
+                <a href="#contact" class="mobile-link w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold text-center shadow-md shadow-cyan-500/20 block">Hubungi Saya</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= 2. HERO SECTION ================= -->
+    <section id="hero" class="relative pt-32 pb-20 lg:pt-44 lg:pb-32 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            
+            <!-- Left Column: Text Content -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <!-- Badge / Title -->
+                <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-xs sm:text-sm font-semibold uppercase tracking-wider shadow-sm animate-pulse">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span>Software Developer & Hardware Specialist</span>
+                </div>
+
+                <!-- Full Name -->
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                    Halo, Saya <br class="hidden sm:inline">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500">Aji Dwi Andika</span> Putra
+                </h1>
+
+                <!-- Nickname -->
+                <div class="flex items-center justify-center lg:justify-start gap-2 text-base sm:text-lg text-slate-300 font-medium">
+                    <i class="fa-regular fa-id-badge text-cyan-400"></i>
+                    <span>Akrab dipanggil <strong class="text-white font-bold underline decoration-cyan-500 decoration-2 underline-offset-4">Andika</strong></span>
+                </div>
+
+                <!-- Deskripsi Diri -->
+                <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal pt-2">
+                    Praktisi teknologi informasi yang berdedikasi tinggi dalam menjembatani pengembangan perangkat lunak modern dan keandalan sistem perangkat keras. Berpengalaman membangun solusi aplikasi web, mobile, hingga perbaikan hardware secara presisi.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-5">
+                    <a href="#projects" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-600 text-white font-bold text-base shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:-translate-y-1 active:translate-y-0 transition-all duration-300 flex items-center justify-center gap-3 group">
+                        <i class="fa-solid fa-folder-open group-hover:rotate-12 transition-transform"></i>
+                        <span>Lihat Proyek</span>
+                    </a>
+                    <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl border border-slate-700 hover:border-cyan-500/50 bg-slate-800/40 hover:bg-slate-800 text-slate-200 hover:text-cyan-400 font-bold text-base transition-all duration-300 flex items-center justify-center gap-3 backdrop-blur-md">
+                        <i class="fa-regular fa-paper-plane"></i>
+                        <span>Hubungi Saya</span>
+                    </a>
+                </div>
+
+                <!-- Highlight Mini Specs -->
+                <div class="pt-8 border-t border-slate-800/80 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0 text-left">
+                    <div class="p-3 rounded-xl bg-slate-800/30 border border-slate-800">
+                        <div class="text-cyan-400 text-xl font-bold mb-1"><i class="fa-solid fa-code font-normal"></i> Full-Stack</div>
+                        <div class="text-xs text-slate-400">Web & Mobile App</div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-800/30 border border-slate-800">
+                        <div class="text-sky-400 text-xl font-bold mb-1"><i class="fa-solid fa-cpu font-normal"></i> IoT & NFC</div>
+                        <div class="text-xs text-slate-400">Hardware Integration</div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-800/30 border border-slate-800">
+                        <div class="text-blue-400 text-xl font-bold mb-1"><i class="fa-solid fa-wrench font-normal"></i> Expert</div>
+                        <div class="text-xs text-slate-400">Hardware Repair</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Interactive Tech Card Visual -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="w-full max-w-md lg:max-w-none relative animate-float">
+                    <!-- Glow Behind Card -->
+                    <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-3xl blur-xl opacity-30 group-hover:opacity-100 transition duration-1000"></div>
+                    
+                    <!-- Main Visual Card -->
+                    <div class="relative glass-card rounded-3xl p-6 sm:p-8 border border-slate-700/80 shadow-2xl overflow-hidden space-y-6">
+                        
+                        <!-- Top Window Header -->
+                        <div class="flex items-center justify-between border-b border-slate-700/60 pb-4">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+                                <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
+                                <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
+                                <span class="ml-2 text-xs font-mono text-slate-400">developer_profile.ts</span>
+                            </div>
+                            <span class="px-2.5 py-1 rounded bg-cyan-500/10 text-cyan-400 font-mono text-2xs uppercase tracking-wider font-bold">ACTIVE</span>
+                        </div>
+
+                        <!-- Code Terminal View -->
+                        <div class="bg-slate-950/80 rounded-xl p-4 font-mono text-xs sm:text-sm leading-relaxed border border-slate-800/80 text-slate-300">
+                            <div><span class="text-purple-400">const</span> <span class="text-cyan-400">developer</span> <span class="text-purple-400">=</span> <span class="text-blue-400">new</span> <span class="text-yellow-300">Specialist</span>({</div>
+                            <div class="pl-4"><span class="text-slate-400">name:</span> <span class="text-green-400">"Aji Dwi Andika Putra"</span>,</div>
+                            <div class="pl-4"><span class="text-slate-400">role:</span> <span class="text-green-400">"Software & Hardware Dev"</span>,</div>
+                            <div class="pl-4"><span class="text-slate-400">stack:</span> [<span class="text-green-400">"Flutter"</span>, <span class="text-green-400">"Laravel"</span>, <span class="text-green-400">"Golang"</span>],</div>
+                            <div class="pl-4"><span class="text-slate-400">hardware:</span> [<span class="text-green-400">"ESP32"</span>, <span class="text-green-400">"RC522"</span>, <span class="text-green-400">"Repair"</span>]</div>
+                            <div>});</div>
+                            <div class="mt-2 text-cyan-400"><span class="text-purple-400">await</span> developer.<span class="text-yellow-300">deploySolution</span>();</div>
+                        </div>
+
+                        <!-- Hardware Telemetry Dashboard Simulation -->
+                        <div class="bg-slate-900/60 rounded-2xl p-4 border border-slate-800 space-y-3">
+                            <div class="flex items-center justify-between text-xs text-slate-400">
+                                <span class="flex items-center gap-1.5 font-semibold text-slate-300">
+                                    <i class="fa-solid fa-microchip text-cyan-400"></i> Hardware & IoT Diagnostics
+                                </span>
+                                <span class="text-emerald-400 flex items-center gap-1">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Online
+                                </span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2.5 pt-1">
+                                <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60 flex items-center gap-2.5">
+                                    <div class="w-8 h-8 rounded bg-cyan-500/10 flex items-center justify-center text-cyan-400"><i class="fa-solid fa-wifi"></i></div>
+                                    <div>
+                                        <div class="text-2xs text-slate-400">ESP32 Sensor</div>
+                                        <div class="text-xs font-bold text-white">Connected</div>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60 flex items-center gap-2.5">
+                                    <div class="w-8 h-8 rounded bg-blue-500/10 flex items-center justify-center text-blue-400"><i class="fa-solid fa-mobile-screen"></i></div>
+                                    <div>
+                                        <div class="text-2xs text-slate-400">NFC RC522</div>
+                                        <div class="text-xs font-bold text-white">Ready 13.56MHz</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Badges in Card -->
+                        <div class="flex items-center justify-between text-2xs text-slate-400 pt-2 border-t border-slate-800/80">
+                            <span><i class="fa-solid fa-check-double text-cyan-400"></i> Presisi Hardware Tinggi</span>
+                            <span><i class="fa-solid fa-bolt text-yellow-400"></i> Real-Time Systems</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= 3. KEAHLIAN & SPESIALISASI ================= -->
+    <section id="skills" class="py-24 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto relative z-10 border-t border-slate-800/60">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-widest">Kompetensi Teknis</span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-4 mb-4 tracking-tight">Keahlian & Spesialisasi</h2>
+            <p class="text-slate-400 text-base sm:text-lg leading-relaxed">
+                Perpaduan keahlian komprehensif dari lapisan rekayasa perangkat lunak hingga arsitektur dan perbaikan perangkat keras fisik.
+            </p>
         </div>
 
-        <div class="section-title">Kontak & Tautan</div>
-        <div class="links">
-            <a href="https://github.com" target="_blank" class="btn btn-primary">Lihat Profil GitHub</a>
-            <a href="https://wa.me/628xxxxxxxxxx" target="_blank" class="btn btn-outline">Hubungi via WhatsApp</a>
+        <!-- 2 Category Cards Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 max-w-6xl mx-auto">
+            
+            <!-- CARD 1: Software & System Development -->
+            <div class="glass-card glass-card-hover rounded-3xl p-8 sm:p-10 relative overflow-hidden group">
+                <!-- Top Glow Accent -->
+                <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-sky-400 to-blue-500"></div>
+                
+                <!-- Icon & Title -->
+                <div class="flex items-start gap-5 mb-6">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl shrink-0 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-all duration-300 shadow-lg shadow-cyan-500/10">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Software & System Development</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Pengembangan aplikasi multi-platform dengan arsitektur modern, berkinerja tinggi, dan basis data yang teroptimasi dengan baik.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Skills Badges Grid -->
+                <div class="pt-6 border-t border-slate-700/60">
+                    <div class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-terminal text-cyan-400"></i>
+                        <span>Teknologi & Tools Utama:</span>
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        <!-- Flutter -->
+                        <div class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900/80 border border-slate-700/80 hover:border-cyan-500/50 hover:bg-slate-800 transition-all group/item">
+                            <i class="fa-solid fa-mobile-screen-button text-cyan-400 text-lg group-hover/item:scale-110 transition-transform"></i>
+                            <span class="font-semibold text-slate-200 text-sm">Flutter</span>
+                        </div>
+                        <!-- Laravel -->
+                        <div class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900/80 border border-slate-700/80 hover:border-red-500/50 hover:bg-slate-800 transition-all group/item">
+                            <i class="fa-brands fa-laravel text-red-500 text-lg group-hover/item:scale-110 transition-transform"></i>
+                            <span class="font-semibold text-slate-200 text-sm">Laravel</span>
+                        </div>
+                        <!-- Golang -->
+                        <div class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900/80 border border-slate-700/80 hover:border-sky-500/50 hover:bg-slate-800 transition-all group/item">
+                            <i class="fa-solid fa-server text-sky-400 text-lg group-hover/item:scale-110 transition-transform"></i>
+                            <span class="font-semibold text-slate-200 text-sm">Golang</span>
+                        </div>
+                        <!-- Vue.js -->
+                        <div class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900/80 border border-slate-700/80 hover:border-emerald-500/50 hover:bg-slate-800 transition-all group/item">
+                            <i class="fa-brands fa-vuejs text-emerald-400 text-lg group-hover/item:scale-110 transition-transform"></i>
+                            <span class="font-semibold text-slate-200 text-sm">Vue.js</span>
+                        </div>
+                        <!-- MySQL -->
+                        <div class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900/80 border border-slate-700/80 hover:border-blue-500/50 hover:bg-slate-800 transition-all group/item">
+                            <i class="fa-solid fa-database text-blue-400 text-lg group-hover/item:scale-110 transition-transform"></i>
+                            <span class="font-semibold text-slate-200 text-sm">MySQL</span>
+                        </div>
+                        <!-- Git -->
+                        <div class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900/80 border border-slate-700/80 hover:border-orange-500/50 hover:bg-slate-800 transition-all group/item">
+                            <i class="fa-brands fa-git-alt text-orange-500 text-lg group-hover/item:scale-110 transition-transform"></i>
+                            <span class="font-semibold text-slate-200 text-sm">Git</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 2: Hardware & Infrastructure -->
+            <div class="glass-card glass-card-hover rounded-3xl p-8 sm:p-10 relative overflow-hidden group">
+                <!-- Top Glow Accent -->
+                <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-500"></div>
+                
+                <!-- Icon & Title -->
+                <div class="flex items-start gap-5 mb-6">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-500/20 to-indigo-500/20 border border-sky-500/30 flex items-center justify-center text-sky-400 text-2xl shrink-0 group-hover:scale-110 group-hover:bg-sky-500 group-hover:text-slate-950 transition-all duration-300 shadow-lg shadow-sky-500/10">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-sky-400 transition-colors">Hardware & Infrastructure</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Keahlian teknis mendalam dalam pemeliharaan perangkat keras fisik serta integrasi sensor IoT cerdas dengan sistem digital.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Hardware & IoT List -->
+                <div class="pt-6 border-t border-slate-700/60 space-y-4">
+                    <!-- Item 1: Diagnosa & Perbaikan -->
+                    <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-700/80 hover:border-cyan-500/50 transition-all">
+                        <div class="flex items-center gap-2.5 text-white font-bold text-sm mb-2">
+                            <i class="fa-solid fa-wrench text-cyan-400"></i>
+                            <span>Diagnosa & Perbaikan Hardware</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mb-3">
+                            Penanganan trobleshooting hardware presisi tinggi, perbaikan kerusakan, upgrade komponen, dan pemeliharaan sistem.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-2xs font-semibold text-slate-300 border border-slate-700"><i class="fa-solid fa-mobile-screen text-cyan-400"></i> Smartphone</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-2xs font-semibold text-slate-300 border border-slate-700"><i class="fa-solid fa-laptop text-blue-400"></i> Laptop</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-2xs font-semibold text-slate-300 border border-slate-700"><i class="fa-solid fa-desktop text-indigo-400"></i> PC Desktop</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 2: IoT Hardware Integration -->
+                    <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-700/80 hover:border-sky-500/50 transition-all">
+                        <div class="flex items-center gap-2.5 text-white font-bold text-sm mb-2">
+                            <i class="fa-solid fa-network-wired text-sky-400"></i>
+                            <span>IoT Hardware Integration</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mb-3">
+                            Perancangan perangkat otomatisasi kustom, pembaca RFID/NFC, dan komunikasi serial/wireless ke backend server.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-2xs font-semibold text-slate-300 border border-slate-700"><i class="fa-solid fa-memory text-sky-400"></i> ESP32 Microcontroller</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-2xs font-semibold text-slate-300 border border-slate-700"><i class="fa-solid fa-id-card text-emerald-400"></i> Sensor / NFC RC522</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= 4. PROYEK UTAMA (FEATURED PROJECT) ================= -->
+    <section id="projects" class="py-24 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto relative z-10 border-t border-slate-800/60">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-widest">Portofolio Unggulan</span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-4 mb-4 tracking-tight">Proyek Utama</h2>
+            <p class="text-slate-400 text-base sm:text-lg leading-relaxed">
+                Studi kasus implementasi nyata yang menggabungkan kekuatan rekayasa software backend & mobile dengan keandalan perangkat keras IoT.
+            </p>
         </div>
 
-        <footer>
-            &copy; 2026 Aji Dwi Andika Putra. All rights reserved.
+        <!-- Featured Project Card -->
+        <div class="max-w-5xl mx-auto glass-card rounded-3xl overflow-hidden border border-slate-700/80 shadow-2xl hover:border-cyan-500/50 transition-all duration-500 hover:shadow-cyan-500/10 group">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+                
+                <!-- Left Visual Area: Interactive Mockup / Architecture Graphic -->
+                <div class="lg:col-span-5 bg-gradient-to-br from-slate-900 via-slate-950 to-darkSlate p-8 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-slate-800 relative overflow-hidden">
+                    <!-- Background Glow -->
+                    <div class="absolute -right-20 -top-20 w-64 h-64 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none"></div>
+                    
+                    <!-- Tag Status -->
+                    <div class="relative z-10">
+                        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/15 border border-cyan-500/40 text-cyan-300 text-xs font-bold uppercase tracking-wider shadow-sm">
+                            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                            Enterprise Solution / Private System
+                        </span>
+                    </div>
+
+                    <!-- System Flow Graphic Illustration -->
+                    <div class="my-10 space-y-4 relative z-10">
+                        <!-- Step 1: IoT Hardware -->
+                        <div class="bg-slate-800/80 p-4 rounded-2xl border border-slate-700 flex items-center gap-4 shadow-lg group-hover:translate-x-1 transition-transform">
+                            <div class="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-xl shrink-0"><i class="fa-solid fa-wifi"></i></div>
+                            <div>
+                                <div class="text-xs font-bold text-white">ESP32 + RC522 Reader</div>
+                                <div class="text-2xs text-slate-400">Pegawai Tap Kartu NFC</div>
+                            </div>
+                            <span class="ml-auto text-cyan-400 text-xs font-mono font-bold">STEP 1</span>
+                        </div>
+                        
+                        <!-- Connector Arrow -->
+                        <div class="flex justify-center text-cyan-400 text-sm"><i class="fa-solid fa-arrow-down animate-bounce"></i></div>
+
+                        <!-- Step 2: Backend Cloud -->
+                        <div class="bg-slate-800/80 p-4 rounded-2xl border border-slate-700 flex items-center gap-4 shadow-lg group-hover:translate-x-2 transition-transform duration-300">
+                            <div class="w-12 h-12 rounded-xl bg-sky-500/20 flex items-center justify-center text-sky-400 text-xl shrink-0"><i class="fa-solid fa-server"></i></div>
+                            <div>
+                                <div class="text-xs font-bold text-white">Golang Backend Server</div>
+                                <div class="text-2xs text-slate-400">Real-time Data Processing</div>
+                            </div>
+                            <span class="ml-auto text-sky-400 text-xs font-mono font-bold">STEP 2</span>
+                        </div>
+
+                        <!-- Connector Arrow -->
+                        <div class="flex justify-center text-sky-400 text-sm"><i class="fa-solid fa-arrow-down animate-bounce" style="animation-delay: 0.2s;"></i></div>
+
+                        <!-- Step 3: Multi-Platform Apps -->
+                        <div class="bg-slate-800/80 p-4 rounded-2xl border border-slate-700 flex items-center gap-4 shadow-lg group-hover:translate-x-3 transition-transform duration-500">
+                            <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-400 text-xl shrink-0"><i class="fa-solid fa-bell"></i></div>
+                            <div>
+                                <div class="text-xs font-bold text-white">Flutter App & Vue.js Web</div>
+                                <div class="text-2xs text-slate-400">Notifikasi Instan & Rekap</div>
+                            </div>
+                            <span class="ml-auto text-blue-400 text-xs font-mono font-bold">STEP 3</span>
+                        </div>
+                    </div>
+
+                    <!-- Hardware Spec Footer -->
+                    <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-2xs text-slate-400 font-mono">
+                        <span><i class="fa-solid fa-shield-halved text-emerald-400"></i> Encrypted RFID Protocol</span>
+                        <span>100% Automated</span>
+                    </div>
+                </div>
+
+                <!-- Right Content Area: Project Details -->
+                <div class="lg:col-span-7 p-8 sm:p-10 lg:p-12 flex flex-col justify-between space-y-6">
+                    <div>
+                        <!-- Project Title -->
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-white mb-4 group-hover:text-cyan-400 transition-colors leading-tight">
+                            Sistem Absensi Digital Berbasis Kartu NFC
+                        </h3>
+
+                        <!-- Client / Case Study -->
+                        <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-slate-900/90 border border-slate-700/80 text-slate-300 text-sm font-medium mb-6">
+                            <i class="fa-solid fa-building text-cyan-400 text-base"></i>
+                            <span>Klien / Studi Kasus: <strong class="text-white font-bold">PT Anugrah Mitra Kalimantan</strong></span>
+                        </div>
+
+                        <!-- Description -->
+                        <p class="text-slate-300 text-base leading-relaxed mb-8 font-normal">
+                            Solusi otomatisasi absensi untuk menggantikan proses rekapitulasi manual yang lambat. Memanfaatkan perangkat kustom IoT berbasis <strong class="text-cyan-300 font-semibold">ESP32</strong> dan pembaca <strong class="text-cyan-300 font-semibold">NFC RC522</strong>. Ketika pegawai melakukan tap kartu NFC, data dikirim langsung ke server backend secara real-time dan memicu notifikasi instan ke aplikasi mobile pegawai.
+                        </p>
+
+                        <!-- Tech Stack Badges Section -->
+                        <div class="space-y-3">
+                            <div class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2">
+                                <i class="fa-solid fa-layer-group text-cyan-400"></i>
+                                <span>Arsitektur & Tech Stack:</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2.5">
+                                <span class="px-3.5 py-2 rounded-xl bg-slate-900/90 border border-sky-500/40 text-sky-300 text-xs font-bold flex items-center gap-2 shadow-sm">
+                                    <i class="fa-solid fa-server text-sky-400"></i> Golang (Backend)
+                                </span>
+                                <span class="px-3.5 py-2 rounded-xl bg-slate-900/90 border border-emerald-500/40 text-emerald-300 text-xs font-bold flex items-center gap-2 shadow-sm">
+                                    <i class="fa-brands fa-vuejs text-emerald-400"></i> Vue.js (Frontend Web)
+                                </span>
+                                <span class="px-3.5 py-2 rounded-xl bg-slate-900/90 border border-cyan-500/40 text-cyan-300 text-xs font-bold flex items-center gap-2 shadow-sm">
+                                    <i class="fa-solid fa-mobile-screen-button text-cyan-400"></i> Flutter (Android App)
+                                </span>
+                                <span class="px-3.5 py-2 rounded-xl bg-slate-900/90 border border-blue-500/40 text-blue-300 text-xs font-bold flex items-center gap-2 shadow-sm">
+                                    <i class="fa-solid fa-microchip text-blue-400"></i> ESP32 & RC522 (IoT Hardware)
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Bottom Action -->
+                    <div class="pt-6 border-t border-slate-700/60 flex items-center justify-between">
+                        <div class="flex items-center gap-2 text-xs text-slate-400">
+                            <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                            <span>Berhasil diimplementasikan & beroperasi penuh</span>
+                        </div>
+                        <a href="#contact" class="inline-flex items-center gap-2 text-sm font-bold text-cyan-400 hover:text-cyan-300 group/link">
+                            <span>Diskusi Proyek Serupa</span>
+                            <i class="fa-solid fa-arrow-right group-hover/link:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 5. PENGALAMAN & PENDIDIKAN (TIMELINE) ================= -->
+    <section id="experience" class="py-24 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto relative z-10 border-t border-slate-800/60">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-widest">Jejak Langkah</span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-4 mb-4 tracking-tight">Pengalaman & Pendidikan</h2>
+            <p class="text-slate-400 text-base sm:text-lg leading-relaxed">
+                Riwayat akademis dan pengalaman profesional dalam membangun dan mengasah kompetensi di dunia teknologi informasi.
+            </p>
+        </div>
+
+        <!-- Vertical Timeline Container -->
+        <div class="max-w-4xl mx-auto relative pl-6 sm:pl-10 border-l-2 border-slate-800 space-y-12">
+            
+            <!-- TIMELINE ITEM 1: Magang Diskominfo -->
+            <div class="relative group">
+                <!-- Timeline Glowing Node -->
+                <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-8 h-8 rounded-full bg-darkSlate border-2 border-cyan-400 flex items-center justify-center text-cyan-400 shadow-lg shadow-cyan-500/40 group-hover:scale-125 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-all duration-300">
+                    <i class="fa-solid fa-briefcase text-xs"></i>
+                </div>
+                
+                <!-- Card Content -->
+                <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 relative">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="px-3 py-1 rounded-full bg-cyan-500/15 border border-cyan-500/30 text-cyan-300 text-xs font-bold">
+                            <i class="fa-regular fa-calendar-days mr-1.5"></i> 1 Sep - 31 Des
+                        </span>
+                        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Pengalaman Profesional</span>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+                        Magang (Internship)
+                    </h3>
+                    <h4 class="text-base sm:text-lg font-semibold text-cyan-300 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-landmark"></i>
+                        <span>Dinas Komunikasi dan Informatika (Diskominfo) Kabupaten Tabalong</span>
+                    </h4>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Berperan aktif dalam mendukung operasional teknologi informasi, manajemen jaringan, serta pemeliharaan sistem digital di lingkungan pemerintahan Kabupaten Tabalong. Mengaplikasikan ilmu rekayasa software dan diagnosa hardware dalam lingkungan kerja nyata.
+                    </p>
+                </div>
+            </div>
+
+            <!-- TIMELINE ITEM 2: D3 Teknik Informatika Poliban -->
+            <div class="relative group">
+                <!-- Timeline Glowing Node -->
+                <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-8 h-8 rounded-full bg-darkSlate border-2 border-sky-400 flex items-center justify-center text-sky-400 shadow-lg shadow-sky-500/40 group-hover:scale-125 group-hover:bg-sky-500 group-hover:text-slate-950 transition-all duration-300">
+                    <i class="fa-solid fa-graduation-cap text-xs"></i>
+                </div>
+                
+                <!-- Card Content -->
+                <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 relative">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="px-3 py-1 rounded-full bg-sky-500/15 border border-sky-500/30 text-sky-300 text-xs font-bold">
+                            <i class="fa-solid fa-user-graduate mr-1.5"></i> Pendidikan Tinggi
+                        </span>
+                        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Diploma 3 (D3)</span>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-sky-400 transition-colors">
+                        D3 Teknik Informatika
+                    </h3>
+                    <h4 class="text-base sm:text-lg font-semibold text-sky-300 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-building-columns"></i>
+                        <span>Politeknik Negeri Banjarmasin</span>
+                    </h4>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Mendalami rekayasa perangkat lunak modern, pengembangan aplikasi web dan mobile (Flutter, Laravel, Golang), arsitektur basis data, algoritma pemrograman, serta integrasi sistem berorientasi objek dan proyek praktikum nyata.
+                    </p>
+                </div>
+            </div>
+
+            <!-- TIMELINE ITEM 3: TKJ SMKN 1 Tanjung -->
+            <div class="relative group">
+                <!-- Timeline Glowing Node -->
+                <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-8 h-8 rounded-full bg-darkSlate border-2 border-blue-400 flex items-center justify-center text-blue-400 shadow-lg shadow-blue-500/40 group-hover:scale-125 group-hover:bg-blue-500 group-hover:text-slate-950 transition-all duration-300">
+                    <i class="fa-solid fa-network-wired text-xs"></i>
+                </div>
+                
+                <!-- Card Content -->
+                <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 relative">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="px-3 py-1 rounded-full bg-blue-500/15 border border-blue-500/30 text-blue-300 text-xs font-bold">
+                            <i class="fa-solid fa-school mr-1.5"></i> Pendidikan Menengah
+                        </span>
+                        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Sekolah Menengah Kejuruan</span>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                        Teknik Komputer dan Jaringan (TKJ)
+                    </h3>
+                    <h4 class="text-base sm:text-lg font-semibold text-blue-300 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-server"></i>
+                        <span>SMKN 1 Tanjung</span>
+                    </h4>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Membangun fondasi kuat dalam arsitektur perangkat keras komputer, perakitan dan perbaikan hardware (PC & Laptop), konfigurasi jaringan komputer, administrasi server dasar, serta trobleshooting sistem operasi.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= 6. KONTAK & FOOTER SECTION ================= -->
+    <section id="contact" class="py-24 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto relative z-10 border-t border-slate-800/60">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-widest">Hubungi Saya</span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-4 mb-4 tracking-tight">Mari Bekerja Sama</h2>
+            <p class="text-slate-400 text-base sm:text-lg leading-relaxed">
+                Siap berdiskusi mengenai proyek pengembangan perangkat lunak, integrasi sistem IoT, atau kebutuhan konsultasi dan perbaikan perangkat keras. Silakan hubungi saya secara langsung.
+            </p>
+        </div>
+
+        <!-- 2 Interactive Contact Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto mb-20">
+            
+            <!-- Card Email -->
+            <a href="mailto:ajidwiandika567@gmail.com" class="group glass-card hover:bg-gradient-to-br hover:from-cyan-950/40 hover:to-slate-800/80 border border-slate-700/80 hover:border-cyan-500 rounded-3xl p-8 text-center transition-all duration-400 hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-500/15 flex flex-col items-center justify-center">
+                <div class="w-16 h-16 rounded-2xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-3xl mb-5 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-all duration-300 shadow-lg shadow-cyan-500/10">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1.5">Email Profesional</span>
+                <span class="text-lg sm:text-xl font-extrabold text-white group-hover:text-cyan-300 transition-colors break-all">
+                    ajidwiandika567@gmail.com
+                </span>
+                <div class="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/80 text-xs font-semibold text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-all">
+                    <span>Kirim Email Sekarang</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-2xs"></i>
+                </div>
+            </a>
+
+            <!-- Card WhatsApp -->
+            <a href="https://wa.me/6281254839762" target="_blank" rel="noopener noreferrer" class="group glass-card hover:bg-gradient-to-br hover:from-emerald-950/40 hover:to-slate-800/80 border border-slate-700/80 hover:border-emerald-500 rounded-3xl p-8 text-center transition-all duration-400 hover:-translate-y-2 hover:shadow-2xl hover:shadow-emerald-500/15 flex flex-col items-center justify-center">
+                <div class="w-16 h-16 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-3xl mb-5 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-all duration-300 shadow-lg shadow-emerald-500/10">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1.5">WhatsApp / Telepon</span>
+                <span class="text-lg sm:text-xl font-extrabold text-white group-hover:text-emerald-300 transition-colors">
+                    081254839762
+                </span>
+                <div class="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/80 text-xs font-semibold text-emerald-400 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-all">
+                    <span>Chat WhatsApp</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-2xs"></i>
+                </div>
+            </a>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="border-t border-slate-800/80 pt-12 pb-8 text-center space-y-6">
+            <!-- Footer Logo / Name -->
+            <div class="flex items-center justify-center gap-2">
+                <span class="w-7 h-7 rounded-lg bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-white text-xs shadow-md"><i class="fa-solid fa-code"></i></span>
+                <span class="text-base font-bold text-white tracking-tight">Aji Dwi Andika<span class="text-cyan-400">.</span></span>
+            </div>
+
+            <!-- Copyright -->
+            <p class="text-slate-400 text-sm font-medium">
+                &copy; 2026 Aji Dwi Andika Putra. All rights reserved.
+            </p>
+
+            <!-- Tech Badge -->
+            <p class="text-xs text-slate-500 flex items-center justify-center gap-1.5">
+                <span>Designed & Built with</span>
+                <i class="fa-solid fa-heart text-red-500 text-2xs animate-pulse"></i>
+                <span>using <strong class="text-slate-400 font-semibold">Tailwind CSS</strong> & <strong class="text-slate-400 font-semibold">Plus Jakarta Sans</strong></span>
+            </p>
         </footer>
-    </div>
+    </section>
+
+    <!-- ================= 7. JAVASCRIPT KUSTOM ================= -->
+    <script>
+        // 1. Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when link is clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // 2. Sticky Navbar Styling on Scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-xl', 'bg-darkSlate/95', 'border-slate-700/80');
+                navbar.classList.remove('bg-darkSlate/80', 'border-slate-800/80');
+            } else {
+                navbar.classList.remove('shadow-xl', 'bg-darkSlate/95', 'border-slate-700/80');
+                navbar.classList.add('bg-darkSlate/80', 'border-slate-800/80');
+            }
+        });
+
+        // 3. Smooth Scrolling & Active Link Highlight
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const scrollY = window.pageYOffset;
+
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 120;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    current = sectionId;
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-cyan-400', 'bg-slate-800/60');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('text-cyan-400', 'bg-slate-800/60');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
